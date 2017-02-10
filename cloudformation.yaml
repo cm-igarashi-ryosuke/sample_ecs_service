@@ -42,7 +42,7 @@ Mappings:
     eu-central-1:
       AMIID: ami-54f5303b
     ap-northeast-1:
-      AMIID: ami-9cd57ffd
+      AMIID: ami-c393d6a4 # amzn-ami-2016.09.f-amazon-ecs-optimized
     ap-southeast-1:
       AMIID: ami-a900a3ca
     ap-southeast-2:
@@ -184,7 +184,7 @@ Resources:
       DesiredCapacity: !Ref 'DesiredCapacity'
     CreationPolicy:
       ResourceSignal:
-        Timeout: PT15M
+        Timeout: PT3M
     UpdatePolicy:
       AutoScalingReplacingUpdate:
         WillReplace: 'true'
@@ -200,7 +200,7 @@ Resources:
         Fn::Base64: !Sub |
           #!/bin/bash -xe
           echo ECS_CLUSTER=${ECSCluster} >> /etc/ecs/ecs.config
-          yum install -y aws-cfn-bootstrap
+          sudo yum install -y aws-cfn-bootstrap
           /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource ECSAutoScalingGroup --region ${AWS::Region}
   service:
     Type: AWS::ECS::Service
