@@ -194,6 +194,7 @@ Resources:
       ImageId: !FindInMap [AWSRegionToAMI, !Ref 'AWS::Region', AMIID]
       SecurityGroups: [!Ref 'EcsSecurityGroup']
       InstanceType: !Ref 'InstanceType'
+      AssociatePublicIpAddress: true
       IamInstanceProfile: !Ref 'EC2InstanceProfile'
       KeyName: !Ref 'KeyName'
       UserData:
