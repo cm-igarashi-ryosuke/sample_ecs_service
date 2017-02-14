@@ -30,7 +30,7 @@ Parameters:
 Mappings:
   AWSRegionToAMI:
     us-east-1:
-      AMIID: ami-eca289fb
+      AMIID: ami-b2df2ca4 # amzn-ami-2016.09.f-amazon-ecs-optimized
     us-east-2:
       AMIID: ami-446f3521
     us-west-1:
