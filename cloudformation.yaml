@@ -1,5 +1,8 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Parameters:
+  Tag:
+    Type: String
+    Default: latest
   KeyName:
     Type: AWS::EC2::KeyPair::KeyName
     Description: Name of an existing EC2 KeyPair to enable SSH access to the ECS instances.
@@ -92,7 +95,7 @@ Resources:
       - Name: simple-app
         Cpu: '10'
         Essential: 'true'
-        Image: 280058936756.dkr.ecr.ap-northeast-1.amazonaws.com/sample_ecs_service:latest
+        Image: !Sub 280058936756.dkr.ecr.ap-northeast-1.amazonaws.com/sample_ecs_service:${Tag}
         Memory: '300'
         LogConfiguration:
           LogDriver: awslogs
