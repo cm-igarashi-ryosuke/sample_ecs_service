@@ -289,6 +289,7 @@ Resources:
           - Effect: Allow
             Action: ['ecs:CreateCluster', 'ecs:DeregisterContainerInstance', 'ecs:DiscoverPollEndpoint',
               'ecs:Poll', 'ecs:RegisterContainerInstance', 'ecs:StartTelemetrySession',
+              'ecr:GetAuthorizationToken','ecr:BatchGetImage','ecr:GetDownloadUrlForLayer',
               'ecs:Submit*', 'logs:CreateLogStream', 'logs:PutLogEvents']
             Resource: '*'
   AutoscalingRole:
