@@ -3,7 +3,7 @@ require "sinatra/json"
 require 'json'
 
 get '/' do
-  'Hello world!'
+  'Hello world???'
 end
 
 get '/sample.json' do
